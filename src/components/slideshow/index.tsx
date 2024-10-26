@@ -5,7 +5,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import useStyles from "./useStyle";
 import RoundedButton from "../buttons/RoundedButton";
-import { fadeVariants, slideVariants } from "./animations";
+import {
+  fadeVariants,
+  slideVariants,
+  slideVariantsMoblile,
+} from "./animations";
 
 type SlideshowProps = {
   image: StaticImageData[];
@@ -50,7 +54,46 @@ const LandingSlideShow: FC<SlideshowProps> = ({
           <div className={classes.taglineStyle}>
             CHAT-POWERED CUSTOMER CONNECTIONS
           </div>
-          <motion.div className={classes.iconButtonContainer}>
+          <motion.div className={classes.iconButtonContainerSmaller}>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={`icon-${index}`}
+                variants={fadeVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+              >
+                <Image
+                  src={icon[index]}
+                  alt={`Slide ${index}`}
+                  className={classes.iconStyle}
+                />
+              </motion.div>
+            </AnimatePresence>
+            <RoundedButton
+              className={classes.buttonDesign}
+              label="Let's Chat"
+            />
+          </motion.div>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={`image-${index}`}
+              variants={slideVariantsMoblile}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className={classes.phoneSmaller}
+              transition={{ duration: 0.5 }}
+            >
+              <Image
+                src={image[index]}
+                alt={`Slide ${index}`}
+                className={classes.phoneStyle}
+              />
+            </motion.div>
+          </AnimatePresence>
+          <motion.div className={classes.iconButtonContainerDesktop}>
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={`icon-${index}`}
@@ -73,23 +116,25 @@ const LandingSlideShow: FC<SlideshowProps> = ({
             />
           </motion.div>
         </motion.div>
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            className={classes.rightContent}
-            key={`image-${index}`}
-            variants={slideVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src={image[index]}
-              alt={`Slide ${index}`}
-              className={classes.phoneStyle}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <motion.div className={classes.rightContent}>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={`image-${index}`}
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className={classes.phoneDesktop}
+              transition={{ duration: 0.5 }}
+            >
+              <Image
+                src={image[index]}
+                alt={`Slide ${index}`}
+                className={classes.phoneStyle}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

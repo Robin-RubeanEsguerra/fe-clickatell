@@ -27,6 +27,7 @@ const useStyles = makeStyles()(({ breakpoints, spacing }) => ({
     maxWidth: 600,
     display: "flex",
     flexDirection: "column",
+    padding: spacing(1),
   },
   textHead: {
     fontWeight: 600,

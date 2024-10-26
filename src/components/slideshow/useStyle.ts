@@ -14,6 +14,11 @@ const useStyles = makeStyles()(({ spacing, breakpoints }) => ({
     display: "flex",
     gap: spacing(4),
     justifyContent: "space-between",
+    [breakpoints.down("md")]: {
+      gap: spacing(2),
+      padding: spacing(6, 0, 6, 0),
+      flexDirection: "column",
+    },
   },
   leftContent: {
     width: "60%",
@@ -21,23 +26,65 @@ const useStyles = makeStyles()(({ spacing, breakpoints }) => ({
     flexDirection: "column",
     gap: spacing(6),
     padding: spacing(5, 0, 5, 0),
+    [breakpoints.down("md")]: {
+      width: "100%",
+      justifyContent: "center",
+      textAlign: "center",
+      gap: spacing(2),
+    },
   },
 
   rightContent: {
     width: "40%",
     display: "flex",
     alignItems: "center",
+    [breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
-  iconButtonContainer: {
-    display: "flex",
+  phoneDesktop: {
+    [breakpoints.down("md")]: {
+      display: "none",
+    },
+    [breakpoints.up("md")]: {
+      display: "flex",
+    },
+  },
+  phoneSmaller: {
+    [breakpoints.down("md")]: {
+      display: "flex",
+      justifyContent: "center",
+      paddingLeft: spacing(1.2),
+      width: "100%",
+    },
+    [breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  iconButtonContainerDesktop: {
+    display: "none",
     height: "auto",
     gap: spacing(4),
+    [breakpoints.up("md")]: {
+      display: "flex",
+    },
+  },
+  iconButtonContainerSmaller: {
+    display: "none",
+    height: "auto",
+    gap: spacing(4),
+    [breakpoints.down("md")]: {
+      display: "flex",
+      width: "100%",
+      justifyContent: "center",
+    },
   },
   iconStyle: {
     width: spacing(8),
   },
   phoneStyle: {
-    width: spacing(45),
+    alignSelf: "center",
+    width: spacing(40),
     height: spacing(60),
     backgroundSize: "cover",
   },
@@ -49,6 +96,9 @@ const useStyles = makeStyles()(({ spacing, breakpoints }) => ({
     background: "-webkit-linear-gradient(40deg, #7854fb , #08e7cb)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
+    [breakpoints.down("md")]: {
+      fontSize: spacing(6),
+    },
   },
   taglineStyle: {
     color: theme.palette.text.secondary,

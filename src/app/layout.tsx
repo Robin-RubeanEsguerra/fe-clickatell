@@ -6,6 +6,7 @@ import theme from "@/themes/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import BaseLayout from "@/components/layout/BaseLayout";
 import CssBaseline from "@mui/material/CssBaseline";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={roboto.className}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
