@@ -3,16 +3,19 @@ const useStyles = makeStyles()(({ breakpoints, spacing }) => ({
   container: {
     display: "flex",
     flexDirection: "column",
+    width: "100%",
   },
   boxContainer: {
     display: "flex",
     justifyContent: "center",
+    width: "100%",
+    height: "auto",
   },
   box: {
     width: "100%",
     maxWidth: breakpoints.values.lg,
-    border: "solid 1px red",
     height: "auto",
+    display: "relative",
     padding: spacing(3),
   },
   textContainer: {

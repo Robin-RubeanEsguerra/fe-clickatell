@@ -7,7 +7,8 @@ const Background: FC<BackgroundType> = ({ children }) => {
   const { classes } = useStyles();
   return (
     <div className={classes.backgoundContainer}>
-      <div className={classes.blueGradient}>{children}</div>;
+      <div className={classes.childrenContainer}>{children}</div>
+      <div className={classes.blueGradient} />
     </div>
   );
 };

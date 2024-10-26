@@ -1,4 +1,7 @@
-export const navigation = [
+type Navigation = {
+  title: string;
+};
+export const navigation: Navigation[] = [
   {
     title: "Platform",
   },

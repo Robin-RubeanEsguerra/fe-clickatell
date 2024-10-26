@@ -3,6 +3,7 @@ import Background from "./Background";
 import useStyles from "./useStyles";
 import { Typography } from "@mui/material";
 import { isAvail } from "@/constants/landing-page-const";
+import PageContents from "./PageContents";
 
 function LandingPage() {
   const { classes } = useStyles();
@@ -10,7 +11,9 @@ function LandingPage() {
     <div className={classes.container}>
       <Background>
         <div className={classes.boxContainer}>
-          <div className={classes.box}>BOX</div>
+          <div className={classes.box}>
+            <PageContents />
+          </div>
         </div>
       </Background>
       <div className={classes.textContainer}>
