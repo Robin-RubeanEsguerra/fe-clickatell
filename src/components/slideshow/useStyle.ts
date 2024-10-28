@@ -89,7 +89,7 @@ const useStyles = makeStyles()(({ spacing, breakpoints }) => ({
     backgroundSize: "cover",
   },
   titleStyle: {
-    fontSize: spacing(10),
+    fontSize: spacing(8),
     fontWeight: 600,
     letterSpacing: spacing(0),
     textWrap: "nowrap",
